@@ -1,7 +1,7 @@
 export enum GameStatus {
-   NotStarted = 0,
-   started = 1,
-   Ended = 2,
+   wait = "waiting",
+   started = "on",
+   ended = "finished",
 }
 
 export interface Commentaire{
@@ -28,7 +28,7 @@ export interface MemoryState {
 }
 
 export interface Card {
-    hidden?: Boolean
+    hidden: Boolean
     card: String;
     index: Number;
     onChildString(): void;

@@ -3,7 +3,7 @@ import { RootState } from "../../app/store";
 import { GameStatus } from '../../app/types/index';
 
 const initialState = {
-  status: GameStatus.NotStarted,
+  status: GameStatus.wait,
   revertCards: [],
   cardsPairs: [],
 };
@@ -26,7 +26,6 @@ export const memorySlice = createSlice({
     },
     cardPairs: (state, action: PayloadAction<string>) => {
       state.cardsPairs.push(action.payload);
-      console.log('statePaair', state.cardsPairs)
     },
     reset: (state) => initialState,
   },

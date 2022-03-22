@@ -1,6 +1,4 @@
 import React from "react";
-import { Card } from '../app/types/index';
-
 
 const card = ({
   hidden = true,

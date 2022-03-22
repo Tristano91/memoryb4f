@@ -13,7 +13,6 @@ const Memory = () => {
   const dispatch = useAppDispatch();
   const [DataMemory, setDataMemory] = useState(Data);
   const [comment, setComment] = useState(false);
-  console.log(comment)
   const revertCards = useAppSelector(selectRevertCards);
   const pairCards = useAppSelector(selectPairCards);
   let currentCardId;
@@ -29,14 +28,16 @@ const Memory = () => {
 
   useEffect(() => {
     if (revertCards.length === 2) {
-      dispatch(statusGame(GameStatus.NotStarted));
+      dispatch(statusGame(GameStatus.wait));
       if (!revertCards[0].startsWith(revertCards[1].slice(0, -1))) {
+        console.log('DIFFERENT', revertCards);
         setTimeout(() => {
           dispatch(revertCard(revertCards[0]));
           dispatch(revertCard(revertCards[1]));
           dispatch(statusGame(GameStatus.started));
         }, 800);
       } else {
+        console.log('IDENTIQUE', revertCard);
         dispatch(cardPairs(revertCards[0]));
         dispatch(cardPairs(revertCard[1]));
         dispatch(revertCard(revertCards[0]));
@@ -55,7 +56,7 @@ const Memory = () => {
   }, [pairCards.length]);
 
   const onGameFinished = () => {
-    dispatch(statusGame(GameStatus.Ended));
+    dispatch(statusGame(GameStatus.ended));
     setComment(true);
   };
 
@@ -70,7 +71,7 @@ const Memory = () => {
       <h1 style={{ color: 'white', marginTop: '1%' }}> B4F - MEMORY</h1>
 
       <Time
-        progress={!GameStatus.Ended}
+        progress={!GameStatus.ended}
         onFinished={onGameFinished}
       />
 
