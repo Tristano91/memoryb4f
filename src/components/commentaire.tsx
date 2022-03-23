@@ -1,10 +1,21 @@
-import React from "react";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
+import { TransitionProps } from '@mui/material/transitions';
+
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & {
+    children: React.ReactElement<any, any>;
+  },
+  ref: React.Ref<unknown>,
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const Comment = ({ popup = false, closePopup, victory = false }) => {
   const handleClose = () => {
@@ -12,28 +23,31 @@ const Comment = ({ popup = false, closePopup, victory = false }) => {
   };
 
   return (
-    <Dialog
-      open={popup}
-      onClose={handleClose}
-      aria-labelledby="alert-dialog-title"
-      aria-describedby="alert-dialog-description"
-    >
-      <DialogTitle id="alert-dialog-title">{"Fin de la party !"}</DialogTitle>
-      <DialogContent>
-        <DialogContentText id="alert-dialog-description">
-          {victory
-            ? "VICTOIRE ! Vous avez finis le jeu ! Veux tu rejouer ?"
-            : "DEFAITE !  Réessayez ? "}
-        </DialogContentText>
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>Rejouer</Button>
-      </DialogActions>
-    </Dialog>
+    <div>
+      <Dialog
+        open={popup}
+        TransitionComponent={Transition}
+        keepMounted
+        onClose={handleClose}
+        aria-describedby="alert-dialog-slide-description"
+      >
+        <DialogTitle>{"Résultat :"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+          {
+            victory ?
+            <p> Bien joué, vous avez trouvé toutes les paires du jeux. Plutot rapide ! </p> 
+            :
+            <p> Vous n'avez pas réussi à finir à temps.. C'est dommage. <br /> Voulez vous réessayer ? </p>
+          }
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Rejouer ?</Button>
+        </DialogActions>
+      </Dialog>
+    </div>
   );
-};
+}
 
 export default Comment;
-
-
-
