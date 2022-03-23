@@ -67,7 +67,7 @@ const Memory = () => {
 
   return (
     <body>
-      <h1 style={{ color: 'white', marginTop: '1%' }}> B4F - MEMORY</h1>
+      <h1 style={{ color: 'white'}}> B4F - MEMORY</h1>
 
       <Timer
         progress={!GameStatus.Ended}
