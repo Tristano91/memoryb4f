@@ -26,7 +26,6 @@ export const memorySlice = createSlice({
     },
     cardPairs: (state, action: PayloadAction<string>) => {
       state.cardsPairs.push(action.payload);
-      console.log('statePaair', state.cardsPairs)
     },
     reset: (state) => initialState,
   },
