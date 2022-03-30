@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import Card from "../../components/card";
-import Time from "../../components/time";
+import Timer from "../../components/timer";
 import Comment from "../../components/commentaire";
 import randomArray from "../../utils/randomArray";
 import { revertCard, selectRevertCards, statusGame, cardPairs, selectPairCards, reset } from "./memorySlice";
@@ -68,10 +68,15 @@ const Memory = () => {
 
   return (
     <body>
-      <h1 style={{ color: 'white', marginTop: '1%' }}> B4F - MEMORY</h1>
+      <h1 style={{ color: 'white'}}> B4F - MEMORY</h1>
 
+<<<<<<< HEAD
       <Time
         progress={!GameStatus.ended}
+=======
+      <Timer
+        progress={!GameStatus.Ended}
+>>>>>>> master
         onFinished={onGameFinished}
       />
 
