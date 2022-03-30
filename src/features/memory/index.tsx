@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import Card from "../../components/card";
 import Timer from "../../components/timer";
@@ -13,7 +13,6 @@ const Memory = () => {
   const dispatch = useAppDispatch();
   const [DataMemory, setDataMemory] = useState(Data);
   const [comment, setComment] = useState(false);
-  console.log(comment)
   const revertCards = useAppSelector(selectRevertCards);
   const pairCards = useAppSelector(selectPairCards);
   let currentCardId;
@@ -60,17 +59,17 @@ const Memory = () => {
   };
 
   const restart = () => {
+    console.log('RESTART')
     dispatch(reset());
     setDataMemory(randomArray(Data));
     setComment(false);
   };
 
   return (
-    <body>
+    <div>
       <h1 style={{ color: 'white'}}> B4F - MEMORY</h1>
-
       <Timer
-        progress={!GameStatus.Ended}
+        progress={!GameStatus.started}
         onFinished={onGameFinished}
       />
 
@@ -94,7 +93,7 @@ const Memory = () => {
           })}
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 
