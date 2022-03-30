@@ -3,7 +3,7 @@ import { RootState } from "../../app/store";
 import { GameStatus } from '../../app/types/index';
 
 const initialState = {
-  status: GameStatus.NotStarted,
+  status: GameStatus.wait,
   revertCards: [],
   cardsPairs: [],
 };
