@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import Card from "../../components/card";
 import Timer from "../../components/timer";
@@ -30,14 +30,12 @@ const Memory = () => {
     if (revertCards.length === 2) {
       dispatch(statusGame(GameStatus.wait));
       if (!revertCards[0].startsWith(revertCards[1].slice(0, -1))) {
-        console.log('DIFFERENT', revertCards);
         setTimeout(() => {
           dispatch(revertCard(revertCards[0]));
           dispatch(revertCard(revertCards[1]));
           dispatch(statusGame(GameStatus.started));
         }, 800);
       } else {
-        console.log('IDENTIQUE', revertCard);
         dispatch(cardPairs(revertCards[0]));
         dispatch(cardPairs(revertCard[1]));
         dispatch(revertCard(revertCards[0]));
@@ -61,17 +59,17 @@ const Memory = () => {
   };
 
   const restart = () => {
+    console.log('RESTART')
     dispatch(reset());
     setDataMemory(randomArray(Data));
     setComment(false);
   };
 
   return (
-    <body>
+    <div>
       <h1 style={{ color: 'white'}}> B4F - MEMORY</h1>
-
       <Timer
-        progress={!GameStatus.ended}
+        progress={!GameStatus.started}
         onFinished={onGameFinished}
       />
 
@@ -95,7 +93,7 @@ const Memory = () => {
           })}
         </div>
       </div>
-    </body>
+    </div>
   );
 };
 
