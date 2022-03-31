@@ -18,33 +18,36 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const Comment = ({ popup = false, closePopup, victory = false }: Commentaire) => {
+const Comment = ({ open, closePopup, victory }: Commentaire) => {
+
+  console.log('Comment open', open);
+
   const handleClose = () => {
     closePopup();
   };
 
   return (
     <Dialog
-      open={popup}
+      open={open}
       TransitionComponent={Transition}
       keepMounted
       onClose={handleClose}
       aria-describedby="alert-dialog-slide-description"
     >
-      <DialogTitle>{"Résultat :"}</DialogTitle>
+      <DialogTitle>{'Résultat :'}</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-slide-description">
           {victory ? (
             <span>
-              {" "}
+              {' '}
               Bien joué, vous avez trouvé toutes les paires du jeux. Plutot
-              rapide !{" "}
+              rapide !{' '}
             </span>
           ) : (
             <span>
-              {" "}
-              Vous n'avez pas réussi à finir à temps.. C'est dommage. <br />{" "}
-              Voulez vous réessayer ?{" "}
+              {' '}
+              Vous n'avez pas réussi à finir à temps.. C'est dommage. <br />{' '}
+              Voulez vous réessayer ?{' '}
             </span>
           )}
         </DialogContentText>

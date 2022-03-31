@@ -1,42 +1,41 @@
 export enum GameStatus {
-   wait = "waiting",
-   started = "on",
-   ended = "finished",
+  wait = 'waiting',
+  started = 'on',
+  ended = 'finished',
 }
 
-export interface Commentaire{
-   popup?: boolean,
-   victory?: Boolean,
-   closePopup(): void
+export interface Commentaire {
+  open?: boolean;
+  victory?: Boolean;
+  closePopup(): void;
 }
 
-export interface Time{
-   progress?: Boolean,
-   onFinished(): void, 
-
+export interface Time {
+  progress?: number;
+  onFinished(): void;
 }
 
 export interface StoreState {
-    memory: MemoryState;
+  memory: MemoryState;
 }
 
 export interface MemoryState {
-    cards: string[];
-    // isWaiting: Boolean;
-    revertCards: string[];
-    status: GameStatus;
+  cards: string[];
+  // isWaiting: Boolean;
+  revertCards: string[];
+  status: GameStatus;
 }
 
 export interface Card {
-    hidden: Boolean
-    card: String;
-    index: Number;
-    onChildString(): void;
-    revertCard: String;
+  hidden: Boolean;
+  card: String;
+  index: Number;
+  onChildString(): void;
+  revertCard: String;
 }
 
 export interface DataTypes {
-    id: number;
-    logo: string;
-    title: string;
+  id: number;
+  logo: string;
+  title: string;
 }
