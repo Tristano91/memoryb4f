@@ -1,13 +1,13 @@
 export enum GameStatus {
-   NotStarted = 0,
-   started = 1,
-   Ended = 2,
+   wait = "waiting",
+   started = "on",
+   ended = "finished",
 }
 
 export interface Commentaire{
-   popup: void,
-   victory: Boolean,
-   close(): void
+   popup?: boolean,
+   victory?: Boolean,
+   closePopup(): void
 }
 
 export interface Time{
@@ -22,13 +22,13 @@ export interface StoreState {
 
 export interface MemoryState {
     cards: string[];
-    isWaiting: Boolean;
+    // isWaiting: Boolean;
     revertCards: string[];
     status: GameStatus;
 }
 
 export interface Card {
-    hidden?: Boolean
+    hidden: Boolean
     card: String;
     index: Number;
     onChildString(): void;
