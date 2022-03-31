@@ -43,7 +43,7 @@ const Memory = () => {
         dispatch(statusGame(GameStatus.started));
       }
     }
-  }, [revertCards.length]);
+  }, []);
 
   useEffect(() => {
     if (pairCards.length === 16) {
@@ -51,9 +51,10 @@ const Memory = () => {
         onGameFinished();
       }, 800);
     }
-  }, [pairCards.length]);
+  }, []);
 
   const onGameFinished = () => {
+    console.log('GAME FINISH');
     dispatch(statusGame(GameStatus.Ended));
     setComment(true);
   };
@@ -67,7 +68,7 @@ const Memory = () => {
 
   return (
     <div>
-      <h1 style={{ color: 'white'}}> B4F - MEMORY</h1>
+      <h1 style={{color:'white'}}> B4F - MEMORY</h1>
       <Timer
         progress={!GameStatus.started}
         onFinished={onGameFinished}

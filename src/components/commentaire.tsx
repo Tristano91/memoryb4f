@@ -7,6 +7,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Slide from "@mui/material/Slide";
 import { TransitionProps } from "@mui/material/transitions";
+import { Commentaire} from "../app/types";
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
@@ -17,7 +18,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const Comment = ({ popup = false, closePopup, victory = false }) => {
+const Comment = ({ popup = false, closePopup, victory = false }: Commentaire) => {
   const handleClose = () => {
     closePopup();
   };

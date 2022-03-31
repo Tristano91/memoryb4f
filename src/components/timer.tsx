@@ -1,9 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import Box from "@mui/material/Box";
 import LinearProgress from "@mui/material/LinearProgress";
+import { Time } from "../app/types";
 
-const Timer = ({ onFinished, progress = false }) => {
+const Timer = ({ onFinished, progress = true }: Time) => {
   const [progressBar, setProgressBar] = useState(0);
+  const InProgress = useRef(progress);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -11,7 +13,7 @@ const Timer = ({ onFinished, progress = false }) => {
         if (oldProgress < 100) {
           return Math.min(oldProgress + 3, 100);
         }
-        onFinished();
+        return oldProgress;
       });
     }, 500);
 
@@ -20,10 +22,27 @@ const Timer = ({ onFinished, progress = false }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (progressBar >= 100) {
+      onFinished();
+    }
+  });
+
+  useEffect(() => {
+    if(!InProgress.current) {
+      setProgressBar(0);
+    }
+  })
+
   return (
-    <Box sx={{ width: "80%", marginLeft:'auto', marginRight:'auto'}}>
-      <LinearProgress sx={{ height: 10, borderRadius:5}} variant="determinate" value={progressBar} />
+    <Box sx={{ width: "80%", marginLeft: "auto", marginRight: "auto" }}>
+      <LinearProgress
+        sx={{ height: 10, borderRadius: 5 }}
+        variant="determinate"
+        value={progressBar}
+      />
     </Box>
   );
 };
+
 export default Timer;

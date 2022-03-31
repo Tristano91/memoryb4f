@@ -7,7 +7,7 @@ export enum GameStatus {
 export interface Commentaire{
    popup?: boolean,
    victory?: Boolean,
-   onClose(): void
+   closePopup(): void
 }
 
 export interface Time{
