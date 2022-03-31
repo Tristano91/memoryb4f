@@ -1,6 +1,7 @@
 import React from "react";
 import Memory from "./features/memory";
-import "./App.css";
+// import "./App.css";
+import "./css/style.css"
 
 function App() {
   return (
