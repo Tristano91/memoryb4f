@@ -6,7 +6,6 @@ import Comment from "../../components/commentaire";
 import randomArray from "../../utils/randomArray";
 import { revertCard, selectRevertCards, statusGame, cardPairs, selectPairCards, reset } from "./memorySlice";
 import { Data } from "./data";
-import styles from './memory.module.css';
 import { GameStatus } from "../../app/types";
 
 const Memory = () => {
@@ -67,7 +66,7 @@ const Memory = () => {
 
   return (
     <div>
-      <h1 style={{ color: 'white'}}> B4F - MEMORY</h1>
+      <h1> B4F - MEMORY</h1>
       <Timer
         progress={!GameStatus.started}
         onFinished={onGameFinished}
@@ -79,8 +78,8 @@ const Memory = () => {
         popup={comment}
       />
 
-      <div className={styles.container}>
-        <div className={styles.grill}>
+      <div className={'container'}>
+        <div className={'grill'}>
           {DataMemory.map((res, id) => {
             return (
               <Card
@@ -93,6 +92,7 @@ const Memory = () => {
           })}
         </div>
       </div>
+      <p> Merci de jouer au jeux du Memory, pour retrouver le code voici le lien GitHub <a href="https://github.com/Tristano91/memoryb4f"> ici </a></p>
     </div>
   );
 };

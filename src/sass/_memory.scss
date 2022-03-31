@@ -1,14 +1,12 @@
-.container{
+.container {
+    @include flexCenter;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
     width: 40%;
+    height: 80vh;
 }
 
-.grill{
+.grill {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

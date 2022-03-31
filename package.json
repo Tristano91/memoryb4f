@@ -30,7 +30,7 @@
     "test": "jest",
     "test:watch": "npm test -- --watch",
     "eject": "react-scripts eject",
-    "sass":"sass --watch ./sass/app.scss:public/css/style.css --style compressed"
+    "sass":"sass --watch ./src/sass/style.scss:./src/css/style.css --style compressed"
 
   },
   "eslintConfig": {

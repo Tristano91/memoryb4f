@@ -1,0 +1,15 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@mixin textCenter {
+    text-align: center;
+}
+
+@mixin text {
+    @include textCenter();
+    color: $white;
+}

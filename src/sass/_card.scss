@@ -1,0 +1,10 @@
+.card{
+    @include flexCenter;
+    width: 120px;
+    height: 120px;
+    background-color: $black;
+    border: "solid white 2px";
+    border-radius:5px;
+    margin: 5px;
+}
+

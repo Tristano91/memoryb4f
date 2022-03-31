@@ -10,17 +10,7 @@ const card = ({
   };
 
   return (
-    <div style={{
-      width: 120,
-      height: 120,
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: hidden ? "gray" : "black",
-      border: 'solid white 2px', 
-      borderRadius:'5%',
-      margin: 5,
-    }}
+    <div className={'card'}
     onClick={(event) => {onCardClick(event, card)}}
   >
       {hidden && <img src={card.logo} width='110' alt={card.logo} /> }
