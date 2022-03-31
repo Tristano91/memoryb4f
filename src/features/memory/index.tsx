@@ -70,13 +70,8 @@ const Memory = () => {
     <body>
       <h1 style={{ color: 'white'}}> B4F - MEMORY</h1>
 
-<<<<<<< HEAD
-      <Time
-        progress={!GameStatus.ended}
-=======
       <Timer
-        progress={!GameStatus.Ended}
->>>>>>> master
+        progress={!GameStatus.ended}
         onFinished={onGameFinished}
       />
 
