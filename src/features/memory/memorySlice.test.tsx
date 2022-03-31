@@ -4,7 +4,7 @@ import {describe, expect, test} from '@jest/globals';
 
 
 const initialState = {
-  status: GameStatus.NotStarted,
+  status: GameStatus.wait,
   revertCards: [],
   cardsPairs: [],
 };

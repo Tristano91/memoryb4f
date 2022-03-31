@@ -5,9 +5,9 @@ export enum GameStatus {
 }
 
 export interface Commentaire{
-   popup: void,
-   victory: Boolean,
-   close(): void
+   popup?: boolean,
+   victory?: Boolean,
+   closePopup(): void
 }
 
 export interface Time{
@@ -22,7 +22,7 @@ export interface StoreState {
 
 export interface MemoryState {
     cards: string[];
-    isWaiting: Boolean;
+    // isWaiting: Boolean;
     revertCards: string[];
     status: GameStatus;
 }
