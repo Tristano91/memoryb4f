@@ -18,14 +18,14 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const Comment = ({ popup = false, closePopup, victory = false }: Commentaire) => {
+const Comment = ({ open, closePopup, victory }: Commentaire) => {
   const handleClose = () => {
     closePopup();
   };
 
   return (
     <Dialog
-      open={popup}
+      open={open}
       TransitionComponent={Transition}
       keepMounted
       onClose={handleClose}

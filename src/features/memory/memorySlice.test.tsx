@@ -7,6 +7,7 @@ const initialState = {
   status: GameStatus.wait,
   revertCards: [],
   cardsPairs: [],
+  progressBar:0
 };
 const cardOne = memoryReducer(initialState, revertCard("b4f1"));
 const cardTwo = memoryReducer(initialState, cardPairs("b4f2"));
